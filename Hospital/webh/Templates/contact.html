@@ -1,0 +1,54 @@
+
+{% extends "navigationbar.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+    .mydivstyle:hover{
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+        transform: translateY(-20px);
+      
+      }
+      .coimg{
+        background-image:url("/static/images/img5.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%,100%;
+    
+    }
+</style>
+
+<body class="coimg">
+<div class="container" style= "margin-top:50px">
+<h2 class="text-center" style="color:black">Contact Us</h2>
+<br><br>
+
+<div class="row mt-5 text-center" >
+    <div class="col-lg-3 col-sm-6 mydivstyle">
+        <h4><i class="fas fa-phone-square"></i> Contact</h4>
+        <p class="mt-3 font-weight-bold"><a class="text-danger" href="tel:+91 9305057012">+91 9305057012</a></p>
+    </div>
+
+        <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="fas fa-envelope"></i> Semd Email</h4>
+            <p class="mt-3 font-weight-bold"><a class="text-danger" href="mailto:upadhyaysuraj3257@gmail.com">upadhyaysuraj3257@gmail.com</a></p>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="fas fa-address-card"></i> Office Address</h4>
+            <p class="mt-3 font-weight-bold"><a class="text-danger" href="https://maps.google.com/maps?q=Noida+sertor62+Utttar Pradesh " target="_blank">Noida sector62 Uttar Pradesh</a></p>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 mydivstyle">
+            <h4><i class="far fa-clock"></i> Office Hour</h4>
+            <p class="mt-3 font-weight-bold text-danger" >   9:00 AM to 6:00 PM</p>
+        </div>
+    
+    
+
+</div>
+
+
+
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,33 @@
+
+ {% extends "navigationbar.html" %}
+ {% load static %}
+
+ {% block body %}
+ <style>
+    {% comment %} .abimg{
+        background-image:url("/static/images/img14.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%,100%;u
+    } {% endcomment %}
+ </style>
+ <body class="abimg">
+<div class="container" style= "margin-top:50px">
+<h2 class="text-center" style="color:blue">Hii About Us</h2>
+<br><br><br><br>
+
+<div class="row">
+    <div class="col-sm-4">
+        <img src="{% static 'images/about.webp' %}" width="300" height="200" class="img-responsive">
+    </div>
+    <div class="col-sm-8 font-weight-bold mt-4">
+        Hello Friends....<br>
+        A hospital is a healthcare institution providing patient 
+        treatment with specialized health science and auxiliary 
+        healthcare staff and medical equipment.<br>
+        This is a simple Hospital Management Projct developed.
+        by Suraj using html,css,javaScript,bootstrap,pyhton django and sqlite.
+    </div>
+</div>
+</div>
+</body>
+{% endblock %}

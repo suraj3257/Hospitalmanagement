@@ -1,0 +1,60 @@
+{% extends "navigationbar.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+    .appimg{
+        background-image: url("/static/images/img16.jpg");
+        background-size: 100%,100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<body class="appimg">
+<div class="container" style="margin-top:50px">
+    <h2 class="text-center" style="color:blue">Add Appointment</h2>
+    <br>
+    <form method="post">
+       {% csrf_token %}
+       <label>Doctor</label>
+       <select name="doctor" class="form-control">
+        {% for i in doctor %}
+        <option value="{{i.name}}">{{i.name}} [{{i.id}}]</option>
+        {% endfor %}
+       </select>
+
+       <label>Patient</label>
+       <select name="patient" class="form-control">
+        {% for i in patient %}
+        <option value="{{i.name}}">{{i.name}} [{{i.id}}]</option>
+        {% endfor %}
+       </select>
+
+       <label>Date</label>
+       <input type="date" class="form-control" name="date">
+       <label>Time</label>
+       <input type="time" class="form-control" name="time">
+       <br>
+       <button type="submit" value="submit" class="form-control btn btn-primary">Submit</button>
+
+    </form>
+
+</div>
+</body>
+{% if error == "no" %}
+<script>
+    //console.log('Error value:', '{{ error }}');
+    alert('Record Save Successfully')
+    window.location=('{% url 'view_appiontment' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    //console.log('Error value:', '{{ error }}');
+    alert('Something went wrong, Try Again')  
+    //alert('Date is required') 
+</script>
+{% endif %}
+
+{% endblock %}

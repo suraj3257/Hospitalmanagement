@@ -1,0 +1,51 @@
+
+{% extends "navigationbar.html" %}
+{% load static %}
+
+{% block body %} 
+<style>
+    .vpimg{
+        background-image: url("/static/images/host.webp");
+        background-size: 100%,100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+
+<body class="vpimg">
+<div class="container" style="margin-mt:50px">
+    <h2 class="text-center" style="color:black">View Patient</h2>
+    <br><br>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Patient ID</td>
+                <th>Patient name</th>
+                <th>Contact</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Delete</th>
+            
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in pat %}
+            <tr>
+                <th>{{i.id}}</th>
+                <th>{{i.name}}</th>
+                <th>{{i.mobile}}</th>
+                <th>{{i.gender}}</th>
+                <th>{{i.address}}</th>
+                <th><a href="{% url 'delete_patient' i.id %}" onclick="return confirm('Are u really want to delete?')" class="btn btn-danger">Delete</a></th>
+            </tr>
+             {% comment %} <a href="{% url 'delete_doctor' id=1 %}">Delete Doctor</a>  {% endcomment %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "navigationbar.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+    .docimg{
+        background-image: url("/static/images/img2.jpg");
+        background-size: 100%,100%;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<body class="docimg">
+<div class="container" style="margin-top:50px">
+    <h2 class="text-center" style="color:blue">Add Doctor</h2>
+    <br>
+    <form method="post">
+       {% csrf_token %}
+       <label>Doctor Name</label>
+       <input type="text" class="form-control" name="name">
+       <label>Contact</label>
+       <input type="text" class="form-control" name="contact">
+       <label>Specialization</label>
+       <input type="text" class="form-control" name="special">
+       <br>
+       <button type="submit" value="submit" class="form-control btn btn-primary">Submit</button>
+
+    </form>
+
+</div>
+</body>
+{% if error == "no" %}
+<script>
+    alert('Record Save Successfully')
+    window.location=('{% url 'view_doctor' %}')
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again')  
+</script>
+{% endif %}
+
+{% endblock %}
